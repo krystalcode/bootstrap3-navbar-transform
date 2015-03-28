@@ -1,0 +1,68 @@
+// The height of the navbar when transformed.
+$navbar-transform-height: 50px;
+$navbar-transform-padding-vertical: (($navbar-transform-height - $line-height-computed) / 2) !default;
+
+// Mixin for vertically aligning navbar elements when the navbar transforms.
+@mixin navbar-transform-vertical-align($element-height) {
+  margin-top: (($navbar-transform-height - $element-height) / 2);
+  margin-bottom: (($navbar-transform-height - $element-height) / 2);
+}
+
+// Rules for transforming the navbar when 'body' has the class "navbar-transform".
+body.navbar-transform {
+  // Wrapper and base class.
+  .navbar {
+    min-height: $navbar-transform-height;
+  }
+
+  // Brand/project name.
+  .navbar-brand {
+    padding: $navbar-transform-padding-vertical $navbar-padding-horizontal;
+    height: $navbar-transform-height;
+  }
+
+  // Navbar toggle.
+  .navbar-toggle {
+    @include navbar-transform-vertical-align(34px);
+  }
+
+  // Navbar nav links.
+  .navbar-nav {
+    margin: ($navbar-transform-padding-vertical / 2) (-$navbar-padding-horizontal);
+
+    // Uncollapse the nav.
+    @media (min-width: $grid-float-breakpoint) {
+      margin: 0;
+
+      > li {
+        > a {
+          padding-top:    $navbar-transform-padding-vertical;
+          padding-bottom: $navbar-transform-padding-vertical;
+        }
+      }
+    }
+  }
+
+  // Navbar form.
+  .navbar-form {
+    // Vertically center in expanded, horizontal navbar
+    @include navbar-transform-vertical-align($input-height-base);
+  }
+
+  // Buttons in navbars.
+  .navbar-btn {
+    @include navbar-transform-vertical-align($input-height-base);
+
+    &.btn-sm {
+      @include navbar-transform-vertical-align($input-height-small);
+    }
+    &.btn-xs {
+      @include navbar-transform-vertical-align(22);
+    }
+  }
+
+  // Text in navbars.
+  .navbar-text {
+    @include navbar-transform-vertical-align($line-height-computed);
+  }
+}
