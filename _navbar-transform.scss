@@ -1,5 +1,9 @@
 // The height of the navbar when transformed.
 $navbar-transform-height: 50px;
+// Padding required for the body tag when using fixed to top navbar.
+$navbar-body-padding: 90px;
+// Leave these unchanged.
+$navbar-transform-body-padding: $navbar-transform-height + $navbar-body-padding - $navbar-height;
 $navbar-transform-padding-vertical: (($navbar-transform-height - $line-height-computed) / 2) !default;
 
 // Mixin for vertically aligning navbar elements when the navbar transforms.
@@ -8,8 +12,16 @@ $navbar-transform-padding-vertical: (($navbar-transform-height - $line-height-co
   margin-bottom: (($navbar-transform-height - $element-height) / 2);
 }
 
+// Apply padding-top to the body tag.
+body {
+  padding-top: $navbar-body-padding;
+}
+
 // Rules for transforming the navbar when 'body' has the class "navbar-transform".
 body.navbar-transform {
+  // Adjust body padding.
+  padding-top: $navbar-transform-body-padding;
+
   // Wrapper and base class.
   .navbar {
     min-height: $navbar-transform-height;
