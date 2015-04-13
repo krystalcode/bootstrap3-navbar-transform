@@ -1,5 +1,5 @@
 /*!
- * Bootstrap 3 Navbar Transform Plugin v1.0
+ * Bootstrap 3 Navbar Transform Plugin v1.0.0
  * https://github.com/krystalcode/bootstrap3-navbar-transform
  * Copyright (c) 2015 Dimitris Bozelos
  * Licensed under MIT (https://github.com/krystalcode/bootstrap3-navbar-transform/blob/master/LICENSE)
