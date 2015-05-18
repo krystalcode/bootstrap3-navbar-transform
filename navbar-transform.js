@@ -5,7 +5,7 @@
  * Licensed under MIT (https://github.com/krystalcode/bootstrap3-navbar-transform/blob/master/LICENSE)
  */
 (function ($) {
-  $(window).load(function(){
+  $(document).ready(function(){
 
     // The distance from top in pixels where the transform should start.
     // Adjust as needed.
